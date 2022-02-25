@@ -134,7 +134,7 @@ Alternatively, we can black box system test, by using the front end to create an
 *When* I enter a product id into the delete field and press the delete button
 *I want* the item to be deleted
 
-converting about to something like Gerkin script:
+converting above to something like Gerkin script:
 *GIVEN* a user can access the front-end of the application
 *WHEN* they input an id into the delete item input
 *AND* an item with that id exists
