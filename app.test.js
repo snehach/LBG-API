@@ -28,5 +28,15 @@ describe('GET requests', () => {
 describe('CREATE request', () => {
     
     // we could also test the create request
+    test(`CREATE item test, expect 201`, async () => {
+        const res = await request(app)
+                            .post('/create')
+                            .send({
+                                name : "test item", 
+                                description : "test desc",
+                                price : 99
+                            })
+        expect(res.statusCode).toBe(201);
+    })
 
 });
