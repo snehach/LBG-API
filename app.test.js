@@ -6,9 +6,14 @@ const build = require('./app').itemBuilder;
 describe('Unit Tests', () => {
 
     test('item object builder', () => {
-        expect(build('', '', '', ''))
+        expect(build('my first thing', 'a test item', 4, 1))
         .toMatchObject(
-            {}
+            {
+                name : "my first thing",
+                description : "a test item",
+                price : 4,
+                _id : 2
+            }
         );
     });
 
