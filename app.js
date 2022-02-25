@@ -120,7 +120,7 @@ app.delete('/delete/:id', (req,res) => {
         //if there is an error, send back the error
         if (err) res.send(err);
         // otherwise 200 - OK
-        res.sendStatus(200);
+        res.sendStatus(418);
         //log the item id to console
         console.log(`Deleted item id: ${JSON.stringify(itemID)}`);
     });
