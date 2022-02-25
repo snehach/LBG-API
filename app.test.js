@@ -27,6 +27,11 @@ describe('GET requests', () => {
     });
 
     // time to create a bad endpoint test (404)
+    //endpoints which does not exist
+    test('GET /bad endpoint, expect 404', async () => {
+        const res = await request(app).get('/bad')
+        expect(res.statusCode).toBe(200);
+    });
 
 });
 
