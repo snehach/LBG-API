@@ -143,4 +143,10 @@ converting above to something like Gerkin script:
 *THEN* that item is deleted from the database
 
 
-
+## Docker
+### Dockerfile 
+Added to build docker image of this app
+### .dockerignore
+Added to ignore some folders and files while building docker image
+### buildnodeappprj2.sh
+Added to build docker image usings script
