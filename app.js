@@ -46,6 +46,7 @@ let itemBuilder = (itemName, itemDescription, itemPrice, itemID) => {
 app.post('/create', (req,res) => {
     // log that we are running the create operation
     log(`\nCreate - POST`);
+    log(`\n change for project 2`);
     // create an item from the request body
     let item = itemBuilder(req.body.name, req.body.description, req.body.price, parseInt(id));
     // increment our id by one
