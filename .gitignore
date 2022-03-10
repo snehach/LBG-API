@@ -1,2 +1,4 @@
 **/node_modules
 **/coverage
+/kubernetes/piers-api-deployment.yaml
+/kubernetes/piers-nginx.yaml
