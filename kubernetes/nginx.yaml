@@ -3,13 +3,13 @@ kind: Service
 metadata:
   name: nginx
 spec:
+  type: LoadBalancer
   selector:
     app: nginx
   ports: 
   - protocol: TCP
     port: 80
     targetPort: 80
-  type: LoadBalancer
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -45,14 +45,14 @@ spec:
         app: nginx
     spec:
       volumes:
-      - name: nginx-config-volume
+      - name: nginx-config
         configMap:
-          name: nginx-config-map           # referencing the contents of the ConfigMap
+          name: nginx-config-map
       containers:
       - name: nginx
         image: nginx:alpine
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: nginx-config-volume            # referencing the volume name
-          mountPath: /etc/nginx/conf.d  # specifying the mount location
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d
