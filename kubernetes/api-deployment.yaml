@@ -33,6 +33,6 @@ spec:
     spec:
       containers:
       - name: api
-        image: snehac174/api:1
+        image: snehac174/api:latest
         ports:
         - containerPort: 4000
