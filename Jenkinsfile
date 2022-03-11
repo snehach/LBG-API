@@ -15,7 +15,7 @@ pipeline {
         //}
         stage('Build Image') {
             steps {
-                sh 'docker build -t gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER .'
+                sh 'docker build -t gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER -t gcr.io/lbg_210222/api-sneha:latest .'
             }
         }
         stage('Push Image to GCR.IO') {
