@@ -3,16 +3,27 @@
 pipeline {
     agent any
     stages {
+        //stage('Build Image') {
+            //steps {
+                //sh 'docker build -t snehac174/api:build-$BUILD_NUMBER .'
+            //}
+        //}
+        //stage('Push to DockerHub') {
+            //steps {
+                //sh 'docker push snehac174/api:build-$BUILD_NUMBER'
+            //}
+        //}
         stage('Build Image') {
             steps {
-                sh 'docker build -t snehac174/api:build-$BUILD_NUMBER .'
+                sh 'docker build -t gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER .'
             }
         }
-        stage('Push to DockerHub') {
+        stage('Push Image to GCR.IO') {
             steps {
-                sh 'docker push snehac174/api:build-$BUILD_NUMBER'
+                sh 'docker push gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER'
             }
         }
+
         stage('Reapply') {
             steps {
                 sh '''kubectl apply -f ./kubernetes/nginx.yaml

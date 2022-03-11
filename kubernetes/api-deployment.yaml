@@ -33,6 +33,6 @@ spec:
     spec:
       containers:
       - name: api
-        image: snehac174/api:1
+        image: gcr.io/lbg_210222/api-sneha:latest
         ports:
         - containerPort: 5000
