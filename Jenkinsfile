@@ -28,10 +28,10 @@ pipeline {
             steps {
                 sh '''kubectl apply -f ./kubernetes/nginx.yaml
                 kubectl apply -f ./kubernetes/api-deployment.yaml
+                '''
                 //if above apply is not able to pick up the latest tag since image was changed 
                 //use restart deployment
-                //kubectl rollout restart deployment/api
-                '''
+                //sh 'kubectl rollout restart deployment/api'
             }
         }
         stage('Cleanup') {
