@@ -33,6 +33,6 @@ spec:
     spec:
       containers:
       - name: api
-        image: gcr.io/lbg_210222/api-sneha:build-\$(BUILD_NUMBER)
+        image: gcr.io/lbg_210222/api-sneha:build-${BUILD_NUMBER}
         ports:
         - containerPort: 5000
