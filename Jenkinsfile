@@ -20,10 +20,11 @@ pipeline {
         }
         stage('Push Image to GCR.IO') {
             steps {
-                sh 'docker push gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER'
+                sh '''docker push gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER
+                docker push gcr.io/lbg_210222/api-sneha:latest
+                '''
             }
         }
-
         stage('Reapply') {
             steps {
                 sh '''kubectl apply -f ./kubernetes/nginx.yaml
@@ -33,7 +34,9 @@ pipeline {
         }
         stage('Cleanup') {
             steps {
-                sh 'docker system prune -f'
+                sh '''docker system prune -f
+                docker rmi gcr.io/lbg_210222/api-sneha:build-$BUILD_NUMBER
+                '''
             }
         }
     }
